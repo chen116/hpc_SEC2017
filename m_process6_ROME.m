@@ -6,7 +6,7 @@ close all
 %% find 1km by 1km square
 clear
 clc
-close all
+%close all
 tic
 format long
 cntt= 1
