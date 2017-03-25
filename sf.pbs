@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=4
-#PBS -l walltime=00:05:00
-#PBS -l mem=1000MB
-#PBS -N sec2017
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=48:00:00
+#PBS -l mem=2000MB
+#PBS -N sf
 #PBS -e /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
 #PBS -o /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
 cd /home/rcf-40/chen116/dynamo/hpc_SEC2017
@@ -12,4 +12,4 @@ fi
 if [ ! -d ./matlabout ]; then
 	mkdir "out"
 fi
-matlab -nosplash -nodesktop -r "run m_process6_ROME.m" >> ./out/text_output_file.txt
+matlab -nosplash -nodesktop -r "run m_process6_SF.m" >> ./out/out_sf.txt
