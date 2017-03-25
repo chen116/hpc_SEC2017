@@ -138,7 +138,7 @@ end
 
 cur_car_pos = zeros(1,has_routes_cnt);
 
-num_cars = 1%length(has_routes_index);
+num_cars = length(has_routes_index);
 clrs=distinguishable_colors(2);
 car = zeros(num_cars,5);
 
@@ -157,7 +157,8 @@ for  k=1:num_cars%length(has_routes_index)
      end
      
 end
-
+min_time
+max_time
 for j = min_time:max_time  
 %     if mod(j,10000)==0
 %         j
