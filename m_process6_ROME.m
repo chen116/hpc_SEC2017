@@ -159,9 +159,9 @@ for  k=1:num_cars%length(has_routes_index)
 end
 
 for j = min_time:max_time  
-    if mod(j,10000)==0
-        j
-    end
+%     if mod(j,10000)==0
+%         j
+%     end
      for  k=1:num_cars%length(has_routes_index)
          maps = routes{has_routes_index(k)};
         % maps(:,2) = (maps(:,2)-bl_lon).*lon_scale;
@@ -223,7 +223,7 @@ for j = min_time:max_time
                                 total_pred = total_pred +1;
 
                                 
-                                hold on
+                                %hold on
                                      
                            end
 
