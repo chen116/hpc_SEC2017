@@ -11,7 +11,7 @@ tic
 format long
 cntt= 1
 
-
+load('rome_new_routes');
 % 1km square
 
 
@@ -121,7 +121,7 @@ time_slot = 5;
 %     % Do some stuff
 % end
 
-load('rome_new_routes');
+
 
 cnt=size(routes,2);
 
