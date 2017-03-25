@@ -1,16 +1,16 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=4
 #PBS -l walltime=00:00:30
-#PBS -l mem=200MB
+#PBS -l mem=2000MB
 #PBS -N sec2017
-##PBS -e ./matlabout/
-##PBS -o ./matlabout/
+#PBS -e ./out/
+#PBS -o ./out/
 /home/rcf-40/chen116/dynamo/hpc_SEC2017
 
 if [ -e /usr/usc/matlab/default/setup.sh ]; then
 	source /usr/usc/matlab/default/setup.sh
 fi
 if [ ! -d ./matlabout ]; then
-	mkdir "matlabout"
+	mkdir "out"
 fi
-matlab -nosplash -nodesktop -r "run EstimatePi.m" >> ./matlabout/text_output_file.txt
+matlab -nosplash -nodesktop -r "run m_process6_ROME.m" >> ./out/text_output_file.txt
