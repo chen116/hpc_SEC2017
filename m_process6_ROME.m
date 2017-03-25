@@ -39,10 +39,10 @@ br_lat = bl_lat;
 br_lon = tr_lon ;
 
 
-tl = [tl_lat tl_lon ];
-tr =  [tr_lat tr_lon];
-bl = [bl_lat bl_lon ];
-br = [br_lat br_lon];
+tl = [tl_lat tl_lon ]
+tr =  [tr_lat tr_lon]
+bl = [bl_lat bl_lon ]
+br = [br_lat br_lon]
 
 ma = [tl;tr;bl;br];
 
@@ -373,5 +373,6 @@ toc
 correct_pred
 total_pred 
 suc_rate = correct_pred/total_pred 
+disp(sprintf ( '\n') )
 %min time 1211048366
 %max time 1213082663
