@@ -5,7 +5,7 @@
 #PBS -N sec2017
 ##PBS -e ./matlabout/
 ##PBS -o ./matlabout/
-/home/rcf-40/chen116
+/home/rcf-40/chen116/dynamo/hpc_SEC2017
 
 if [ -e /usr/usc/matlab/default/setup.sh ]; then
 	source /usr/usc/matlab/default/setup.sh
