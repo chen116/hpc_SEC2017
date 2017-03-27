@@ -158,7 +158,7 @@ for  k=1:num_cars%length(has_routes_index)
      
 end
 min_time
-max_time = floor((max_time-min_time)/2)
+max_time = floor((max_time+min_time)/2)
 for j = min_time:max_time
     if mod(j,100000)==0
         j
