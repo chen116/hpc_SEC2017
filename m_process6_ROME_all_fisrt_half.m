@@ -160,9 +160,12 @@ end
 min_time
 max_time = floor((max_time-min_time)/2)
 for j = min_time:max_time
-%     if mod(j,10000)==0
-%         j
-%     end
+    if mod(j,100000)==0
+        j
+        correct_pred
+        total_pred 
+        suc_rate = correct_pred/total_pred 
+    end
      for  k=1:num_cars%length(has_routes_index)
          maps = routes{has_routes_index(k)};
         % maps(:,2) = (maps(:,2)-bl_lon).*lon_scale;
@@ -370,7 +373,7 @@ toc
 
 
 %savefig('rome_313cars.fig')
-
+disp('final')
 correct_pred
 total_pred 
 suc_rate = correct_pred/total_pred 

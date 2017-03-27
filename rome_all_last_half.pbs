@@ -2,7 +2,7 @@
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=24:00:00
 #PBS -l mem=1000MB
-#PBS -N rome_all
+#PBS -N rome_all_last_half
 #PBS -e /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
 #PBS -o /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
 cd /home/rcf-40/chen116/dynamo/hpc_SEC2017
@@ -12,4 +12,4 @@ fi
 if [ ! -d ./matlabout ]; then
 	mkdir "out"
 fi
-matlab -nosplash -nodesktop -r "run m_process6_ROME_all.m" >> ./out/out_rome_all.txt
+matlab -nosplash -nodesktop -r "run m_process6_ROME_all_last_half.m" >> ./out/rome_all_last_half.txt
