@@ -11,7 +11,7 @@ tic
 format long
 cntt= 1
 
-load('bj_12_routes');
+load('bj_12_routes_60sec');
 % 1km square
 
 
@@ -25,24 +25,19 @@ lat_diff= 0;
 % 41.915220, 12.522653
 % 41.883314,12.522653
 
-tl_lon = 12.48-lon_diff;
-bl_lat = 41.883314-lat_diff;
-
-
-tl_lat = 41.915220+lat_diff;
-
+tl_lon = 116.40369;
+bl_lat = 39.94119;
+tl_lat = 39.97269;
+tr_lon = 116.44481;
 tr_lat = tl_lat ;
-tr_lon = 12.522653+lon_diff;
-
 bl_lon = tl_lon;
 br_lat = bl_lat;
 br_lon = tr_lon ;
 
-
-tl = [tl_lat tl_lon ]
-tr =  [tr_lat tr_lon]
-bl = [bl_lat bl_lon ]
-br = [br_lat br_lon]
+tl = [tl_lat tl_lon ];
+tr =  [tr_lat tr_lon];
+bl = [bl_lat bl_lon ];
+br = [br_lat br_lon];
 
 ma = [tl;tr;bl;br];
 
