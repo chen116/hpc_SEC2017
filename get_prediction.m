@@ -4,6 +4,7 @@ function [ going_to ] = get_prediction( pre_coor,coor,centers,time_slot,speed,r 
     going_to = 0;
     lon=coor(2);
     lat=coor(1);
+    clrs=distinguishable_colors(2);
     num_nodes=size(centers,1);
     for kk = 1:size(centers,1)
         center = centers(kk,:);
@@ -60,24 +61,29 @@ function [ going_to ] = get_prediction( pre_coor,coor,centers,time_slot,speed,r 
 
                             end
                             [v , going_to] = min(dis);
-                            if(~(going_to==4 || kk==4))
-                                going_to = 0;
+                           if(~(going_to==4 || kk==4))
+                               going_to = 0;
 
-                            else
+                           else
 
 
-        %                                                     plot([new_coor(2) coor(2)  ],[new_coor(1) coor(1) ],'-d','Color',clrs(1,:),'MarkerSize',5)
-        %                                                     hold on                                                    
-        %                                                     plot([coor(2) pre_coor(2)],[coor(1) pre_coor(1)],'-*','Color',clrs(1,:))
-        %                                                     hold on
-        %                                                     plot([new_coor(2) heading_toward(2) ],[new_coor(1) heading_toward(1) ],'-d','Color',clrs(k,:),'MarkerSize',5)
-        %                                                     hold on                                                    
-        %                                                     plot([heading_toward(2) coor(2) pre_coor(2)],[heading_toward(1) coor(1) pre_coor(1)],'-*','Color',clrs(k,:))
-        %                                                     hold on
-        %                                                     plot([coor(2) pre_coor(2)],[coor(1) pre_coor(1)],'-o','Color',clrs(k,:))
-        %                                                     hold on
+%                                                             plot([new_coor(2) coor(2)  ],[new_coor(1) coor(1) ],'-d','Color',clrs(1,:),'MarkerSize',5)
+%                                                             hold on                                                    
+%                                                             plot([coor(2) pre_coor(2)],[coor(1) pre_coor(1)],'-*','Color',clrs(1,:))
+%                                                             hold on
+%                                                             plot([new_coor(2) heading_toward(2) ],[new_coor(1) heading_toward(1) ],'-d','Color',clrs(1,:),'MarkerSize',5)
+%                                                             hold on                                                    
+%                                                             plot([heading_toward(2) coor(2) pre_coor(2)],[heading_toward(1) coor(1) pre_coor(1)],'-*','Color',clrs(1,:))
+%                                                             hold on
+%                                                             plot([coor(2) pre_coor(2)],[coor(1) pre_coor(1)],'-o','Color',clrs(1,:))
+%                                                             hold on
+                           end
+
+                        else
+                            if(kk==4)
+                                going_to = kk;
+                                                   
                             end
-
                         end
 
 

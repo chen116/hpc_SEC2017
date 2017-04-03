@@ -48,16 +48,14 @@ time_slot = 5;
 total_pred = 0;
 correct_pred = 0;
 
-num_cars = length(has_routes_index);
+num_cars = 1%length(has_routes_index);
 car = zeros(num_cars,5); % pre_location[lat lon], pre_timestamp, speed,  going_to
 
 %figure
 for j = min_time:max_time
-    if mod(j,100000)==0
+    if mod(j,10000)==0
         j
-        correct_pred
-        total_pred 
-        suc_rate = correct_pred/total_pred 
+        total_pred
     end
      for  k=1:num_cars%length(has_routes_index)
         maps = routes{has_routes_index(k)};
@@ -124,7 +122,7 @@ end
 toc
 
 
-disp('final')
+
 correct_pred
 total_pred 
 suc_rate = correct_pred/total_pred 
