@@ -39,7 +39,7 @@ num_nodes=size(centers,1);
 [ min_time, max_time ] = get_min_max_time( routes, has_routes_index );
 
 min_time =  min_time;
-max_time =  floor((max_time+min_time)/2);
+max_time =  max_time;
 
 min_date = datestr(min_time/86400 + datenum(1970,1,1))
 max_date = datestr(max_time/86400 + datenum(1970,1,1))
@@ -48,7 +48,7 @@ time_slot = 5;
 total_pred = 0;
 correct_pred = 0;
 
-num_cars = length(has_routes_index);
+num_cars = 1;%length(has_routes_index);
 car = zeros(num_cars,5); % pre_location[lat lon], pre_timestamp, speed,  going_to
 
 figure
@@ -128,7 +128,4 @@ total_pred
 suc_rate = correct_pred/total_pred 
 disp(sprintf ( '\n') )
 
-savefig('rome_313cars_first_half.fig')
-
-
-% use vector % have multiple nodes % fog in_outmatrix 
+%savefig('rome_313cars.fig')

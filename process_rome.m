@@ -26,7 +26,7 @@ tl_lon = 12.48;
 % tl_lat = 37.7962;
 % tr_lon = -122.4165;
 % tl_lon = -122.4565;
-
+% 
 
 
 r = 0.5;
@@ -48,13 +48,13 @@ time_slot = 5;
 total_pred = 0;
 correct_pred = 0;
 
-num_cars = length(has_routes_index);
+num_cars = 1;%length(has_routes_index);
 car = zeros(num_cars,5); % pre_location[lat lon], pre_timestamp, speed,  going_to
 
-%figure
+figure
 for j = min_time:max_time
     if mod(j,100000)==0
-        j
+        datestr(j/86400 + datenum(1970,1,1))
         correct_pred
         total_pred 
         suc_rate = correct_pred/total_pred 
@@ -82,19 +82,15 @@ for j = min_time:max_time
                     if (pre_coor(1)-coor(1)~=0 && pre_coor(2)-coor(2)~=0   )%if (sum(pre_coor-[lat lon])~=0)
                         % check if prediction is correct:
                         if(car(k,5)>0) 
-                            dis = zeros(num_nodes,1);
-                            for kkk = 1:num_nodes
-                                    dis(kkk) =   pdist([coor;centers(kkk,:)],'euclidean') ;
-                            end
-                            [v , im_at] = min(dis);
+                            im_at = get_belong_where(coor,centers);
                             total_pred = total_pred +1;  
                             if(im_at ==car(k,5) )
                                correct_pred = correct_pred + 1; 
-%                                plot([coor(2) pre_coor(2)],[ coor(1) pre_coor(1)],'-o','Color',clrs(1,:),'LineWidth',3)
-%                                hold on
+                               plot([coor(2) pre_coor(2)],[ coor(1) pre_coor(1)],'-o','Color',clrs(1,:),'LineWidth',3)
+                               hold on
                             else
-%                                plot([coor(2) pre_coor(2)],[ coor(1) pre_coor(1)],'-o','Color',clrs(2,:),'LineWidth',3)
-%                                hold on
+                               plot([coor(2) pre_coor(2)],[ coor(1) pre_coor(1)],'-o','Color',clrs(2,:),'LineWidth',3)
+                               hold on
                             end
                             
                                    
@@ -117,7 +113,7 @@ end
 
 
 
-%get_plot_cells( centers,r,h,base )
+get_plot_cells( centers,r,h,base )
 
 
 
@@ -130,4 +126,4 @@ total_pred
 suc_rate = correct_pred/total_pred 
 disp(sprintf ( '\n') )
 
-%savefig('rome_313cars.fig')
+savefig('rome_313cars.fig')

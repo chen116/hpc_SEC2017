@@ -6,8 +6,8 @@ tic
 format long
 
 clrs=distinguishable_colors(2);
-load('rome_routes');
-%load('sf_routes');
+%load('rome_routes');
+load('sf_routes');
 % 41.915220, 12.48
 % 41.883314, 12.48
 % 41.915220, 12.522653
@@ -22,10 +22,10 @@ tl_lon = 12.48;
 % 37.7638,-122.4565
 % 37.7962,-122.4565
 
-% bl_lat = 37.7638;
-% tl_lat = 37.7962;
-% tr_lon = -122.4165;
-% tl_lon = -122.4565;
+bl_lat = 37.7638;
+tl_lat = 37.7962;
+tr_lon = -122.4165;
+tl_lon = -122.4565;
 % 
 
 
@@ -39,7 +39,7 @@ num_nodes=size(centers,1);
 [ min_time, max_time ] = get_min_max_time( routes, has_routes_index );
 
 min_time =  min_time;
-max_time =  floor((max_time+min_time)/2);
+max_time =  max_time;
 
 min_date = datestr(min_time/86400 + datenum(1970,1,1))
 max_date = datestr(max_time/86400 + datenum(1970,1,1))
@@ -77,7 +77,7 @@ for j = min_time:max_time
                 if(k==0)
                     car(k,:) = [lat lon j 0 0];
                 elseif(j-car(k,3)>60)
-                    car(k,:) = [lat lon j 0 0];   
+                    car(k,:) = [lat lon j 0 0];    
                 else
                     pre_coor = [car(k,1) car(k,2)];
                     speed = pdist([coor; pre_coor],'euclidean')/(j-car(k,3));                                                         
@@ -128,7 +128,4 @@ total_pred
 suc_rate = correct_pred/total_pred 
 disp(sprintf ( '\n') )
 
-savefig('rome_313cars_first_half.fig')
-
-
-% use vector % have multiple nodes % fog in_outmatrix 
+savefig('sf_cars.fig')
