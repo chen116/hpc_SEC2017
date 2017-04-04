@@ -44,7 +44,7 @@ max_time =  max_time;
 min_date = datestr(min_time/86400 + datenum(1970,1,1))
 max_date = datestr(max_time/86400 + datenum(1970,1,1))
 
-time_slot = 5;
+time_slot = 30;
 total_pred = 0;
 correct_pred = 0;
 
@@ -128,4 +128,4 @@ total_pred
 suc_rate = correct_pred/total_pred 
 disp(sprintf ( '\n') )
 
-savefig('sf_cars.fig')
+savefig('sf_cars_t30.fig')
