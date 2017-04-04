@@ -6,8 +6,9 @@ tic
 format long
 
 clrs=distinguishable_colors(2);
-load('rome_routes');
+%load('rome_routes');
 %load('sf_routes');
+load('bj_routes');
 % 41.915220, 12.48
 % 41.883314, 12.48
 % 41.915220, 12.522653
@@ -22,15 +23,21 @@ tl_lon = 12.48;
 % 37.7638,-122.4565
 % 37.7962,-122.4565
 
-% bl_lat = 37.7638;
-% tl_lat = 37.7962;
-% tr_lon = -122.4165;
-% tl_lon = -122.4565;
+bl_lat = 37.7638;
+tl_lat = 37.7962;
+tr_lon = -122.4165;
+tl_lon = -122.4565;
 % 
 
 
+tl_lon = 116.40369;
+bl_lat = 39.94119;
+tl_lat = 39.97269;
+tr_lon = 116.44481;
+
+
 r = 0.5;
-h = sqrt(3)*r;
+h = sqrt(3)/2;
 base = 3;
 centers = get_cell_centers( base,r,h );
 num_nodes=size(centers,1);
@@ -44,11 +51,11 @@ max_time =  max_time;
 min_date = datestr(min_time/86400 + datenum(1970,1,1))
 max_date = datestr(max_time/86400 + datenum(1970,1,1))
 
-time_slot = 5;
+time_slot = 30;
 total_pred = 0;
 correct_pred = 0;
 
-num_cars = 1;%length(has_routes_index);
+num_cars = length(has_routes_index);
 car = zeros(num_cars,5); % pre_location[lat lon], pre_timestamp, speed,  going_to
 
 %figure
@@ -76,6 +83,8 @@ for j = min_time:max_time
             
                 if(k==0)
                     car(k,:) = [lat lon j 0 0];
+                elseif(j-car(k,3)>60)
+                    car(k,:) = [lat lon j 0 0];    
                 else
                     pre_coor = [car(k,1) car(k,2)];
                     speed = pdist([coor; pre_coor],'euclidean')/(j-car(k,3));                                                         
@@ -113,7 +122,7 @@ end
 
 
 
-get_plot_cells( centers,r,h,base )
+%get_plot_cells( centers,r,h,base )
 
 
 
@@ -126,4 +135,4 @@ total_pred
 suc_rate = correct_pred/total_pred 
 disp(sprintf ( '\n') )
 
-%savefig('rome_313cars.fig')
+%savefig('sf_cars_t30.fig')
