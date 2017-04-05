@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=24:00:00
-#PBS -l mem=1000MB
+#PBS -l mem=2000MB
 #PBS -N sf
 #PBS -e /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
 #PBS -o /home/rcf-40/chen116/dynamo/hpc_SEC2017/out/
@@ -10,6 +10,6 @@ if [ -e /usr/usc/matlab/default/setup.sh ]; then
 	source /usr/usc/matlab/default/setup.sh
 fi
 if [ ! -d ./matlabout ]; then
-	mkdir "out"
+	mkdir "out_sf"
 fi
-matlab -nosplash -nodesktop -r "run m_process6_SF.m" >> ./out/out_sf.txt
+matlab -nosplash -nodesktop -r "run m_process6_SF.m" >> ./out_sf/out_sf.txt

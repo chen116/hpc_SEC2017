@@ -76,6 +76,8 @@ for j = min_time:max_time
             
                 if(k==0)
                     car(k,:) = [lat lon j 0 0];
+                elseif(j-car(k,3)>60)
+                    car(k,:) = [lat lon j 0 0];    
                 else
                     pre_coor = [car(k,1) car(k,2)];
                     speed = pdist([coor; pre_coor],'euclidean')/(j-car(k,3));                                                         
