@@ -1,4 +1,4 @@
-function [ going_to ] = get_prediction( pre_coor,coor,centers,time_slot,speed,r )
+function [ going_to ] = get_prediction_hex( pre_coor,coor,centers,time_slot,speed,r )
 %UNTITLED8 Summary of this function goes here
 %   Detailed explanation goes here
     going_to = 0;
@@ -8,8 +8,8 @@ function [ going_to ] = get_prediction( pre_coor,coor,centers,time_slot,speed,r 
     num_nodes=size(centers,1);
     for kk = 1:size(centers,1)
         center = centers(kk,:);
-          if(pdist([coor; center],'euclidean')<r && pdist([pre_coor; center],'euclidean')<r)
-          %if(get_inside_hex(coor,center) && get_inside_hex(pre_coor,center))
+          %if(pdist([coor; center],'euclidean')<r && pdist([pre_coor; center],'euclidean')<r)
+          if(get_inside_hex(coor,center) && get_inside_hex(pre_coor,center))
             if(lon == pre_coor(2))
                 x_inter(1) = sqrt(r^2-(lon-center(2))^2)+center(1);
                 x_inter(2) = -sqrt(r^2-(lon-center(2))^2)+center(1);
@@ -55,7 +55,7 @@ function [ going_to ] = get_prediction( pre_coor,coor,centers,time_slot,speed,r 
 %                             end
 %                             [v , going_to] = min(dis);
                             
-                            going_to = get_belong_where(new_coor,centers);
+                            going_to = get_belong_where_hex(new_coor,centers);
                             
                             
 %                            if( ~(going_to==4 || kk==4) )
