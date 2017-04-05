@@ -45,8 +45,8 @@ num_nodes=size(centers,1);
 [ has_routes_index ] = get_has_routes_index( routes );
 [ min_time, max_time ] = get_min_max_time( routes, has_routes_index );
 
-min_time =  floor(max_time+min_time/2)+1;
-max_time =  max_time;
+min_time =   floor(max_time+min_time/2)+1;
+max_time =max_time ;
 
 min_date = datestr(min_time/86400 + datenum(1970,1,1))
 max_date = datestr(max_time/86400 + datenum(1970,1,1))
