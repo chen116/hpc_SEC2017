@@ -129,3 +129,4 @@ suc_rate = correct_pred/total_pred
 disp(sprintf ( '\n') )
 
 savefig('sf_cars_t30.fig')
+disp('saved')
